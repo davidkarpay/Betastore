@@ -1,0 +1,17 @@
+<!DOCTYPE html>     <!-- This page is the style sheet governing all HTML layouts
+                    for the whole application (∴ it's called, "application.html.erb")-->
+<html>
+<head>
+  <title>Betastore</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div style="margin: 0 auto; text-align: center">
+    </div>
+
+<%= yield %>
+
+</body>
+</html>

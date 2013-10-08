@@ -1,0 +1,28 @@
+<h1>List of Subscriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <img src="http://www.justinbuzzard.net/wp-content/uploads/2012/08/nike-sweatshop.jpg" alt="Sweatshop">
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.email %></td>
+        <td><%= link_to 'Show', subscription %></td>
+        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
+        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subscription', new_subscription_path %>
