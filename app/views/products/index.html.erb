@@ -10,12 +10,18 @@
   </style>
 </head>
 <body>
+   <!--     <%= debug cookies[:email] %> -->
+   <% if cookies[:email].present? %>
+        <%= link_to "Log Out", log_out_path, method: 'post' %>
+   <% else %>
+        <%= link_to "Log In", log_in_path, method: 'get' %>
+   <% end %>
 
 <h1><h1 align = "center"><font size="8">Welcome to the Betastore!</h1>
   <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" />
     <h1 align = "center"/>
-    <h1><h1 align = "center"><%= @page_title %></h1>
-      <h1><font size="4"><h1 align = "center" />Check out our hip $W@G, G!</h1>
+ <!--   <h1><h1 align = "center"><%= @page_title %></h1> -->
+      <h1><font size="4"><h1 align = "center" />Take a look at our Betamore Bling!</h1>
     <table>
       <tr>
         <td><img src="http://bit.ly/15Gk0by" height = 350 width = 350/></td>

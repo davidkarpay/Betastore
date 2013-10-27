@@ -1,7 +1,13 @@
 Betastore::Application.routes.draw do
-  resources :subscriptions
-  resources :products
+
   root :to => 'subscriptions#index'
+
+  resources :subscriptions
+  resources :products, only:  [:index, :show]
+
+  get '/log_in' => 'log_ins#new', as: 'log_in'
+  post '/log_in' => 'log_ins#create'
+  post '/log_out' => 'log_ins#destroy', as: 'log_out'
 
 end
 

@@ -11,7 +11,6 @@
   </thead>
 
   <tbody>
-    <img src="http://www.justinbuzzard.net/wp-content/uploads/2012/08/nike-sweatshop.jpg" alt="Sweatshop">
     <% @subscriptions.each do |subscription| %>
       <tr>
         <td><%= subscription.email %></td>
@@ -25,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Subscription', new_subscription_path %>
+<%= link_to 'New Subscription', new_subscription_path %> <%= link_to 'Betastore', products_path %>
