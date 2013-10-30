@@ -3,6 +3,9 @@ class ProductsController < ApplicationController
 
   def index
 
+    session[:view_count] ||= 0
+    session[:view_count] += 1
+
     logger.debug "STATUS: #{params[:status]}"
     @page_title = "Products"
     @products = Product.all
