@@ -27,8 +27,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Security Bcrypt gem 3.0.0
+# Security Bcrypt gem 3.0.0    Enables use of "has_secure_password(options = {})" method
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use the API
+gem 'httparty'
 
 group :development do
   gem 'hirb'

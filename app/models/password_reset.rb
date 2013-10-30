@@ -3,6 +3,8 @@ class PasswordReset < ActiveRecord::Base
 
   before_validation :generate_token
 
+  validates_presence_of :customer_id, :token
+
   def generate_token
     self.token ||= SecureRandom.hex(16)
   end

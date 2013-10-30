@@ -1,12 +1,13 @@
 require 'test_helper'
 
-class CustomerMailerTest < ActionMailer::TestCase
+class CustomerMailerTest < ActionMailer::TestCase     #sent to right person, including token?
   test "password_reset" do
-    mail = CustomerMailer.password_reset
-    assert_equal "Password reset", mail.subject
-    assert_equal ["to@example.org"], mail.to
-    assert_equal ["from@example.com"], mail.from
-    assert_match "Hi", mail.body.encoded
+    mail = CustomerMailer.password_reset(password_resets(:test))
+    assert_equal "Password Reset Instructions", mail.subject
+    assert_equal ["test@example.com"], mail.to                #uses customers.yml fixture
+    assert_equal ["from@example.com"], mail.from              #uses CustomerMailer default from:
+    assert_match password_resets(:test).token, mail.body.encoded
   end
+
 
 end

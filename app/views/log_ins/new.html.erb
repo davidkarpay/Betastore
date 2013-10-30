@@ -2,8 +2,20 @@
 
 <h1>Log In</h1>
 
-<form method="POST" action="/log_in">
-  <label>
+<%= form_tag do %>
+    <%= label_tag :email, params[:email] %>
+    <%= email_field_tag :email, params[:email] %>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+
+    <%= button_tag "Log In" %>
+<% end %>
+
+    <p>Don't have an account, yet? <%= link_to "Sign Up", sign_up_path %></p>
+<!--
+<form method="POST" action="/log_in">                ^^^^^^
+  <label>                                    <--   These are the same thing
     Email
     <input type="email" name="email" />
   </label>
@@ -15,7 +27,7 @@
 
   <button type="submit">Log In</button>
 </form>
-
+                                   -->
 <% if flash[:alert] %>
     <p style="color: red"><%= flash[:alert] %></p>
 <% end %>

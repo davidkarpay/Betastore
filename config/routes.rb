@@ -1,14 +1,27 @@
 Betastore::Application.routes.draw do
+  namespace :admin do
+    resources :products
+  end
 
   root :to => 'subscriptions#index'
 
   resources :subscriptions
-  resources :products, only:  [:index, :show]
+  resources :products
+
+  get '/sign_up' => 'customers#new', as: 'sign_up'
+  post '/sign_up' => 'customers#create'
+
+  get "/orders/new"
 
   get '/log_in' => 'log_ins#new', as: 'log_in'
   post '/log_in' => 'log_ins#create'
   post '/log_out' => 'log_ins#destroy', as: 'log_out'
 
+  get '/forgot_password' => 'password_resets_controller#new', as: 'forgot_password'
+  post '/forgot_password' => 'password_resets_controller#create'
+
+  get '/reset_password/:id/:token' => 'password_resets_controller#edit', as: 'reset_password'
+  post '/reset_password/:id/:token' => 'password_resets_controller#update'
 end
 
   # The priority is based upon order of creation: first created -> highest priority.

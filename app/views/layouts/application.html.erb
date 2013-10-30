@@ -2,14 +2,23 @@
                     for the whole application (∴ it's called, "application.html.erb")-->
 <html>
 <head>
-  <title>Betastore</title>
+  <title><%= @page_title %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class ="container">
 
-    <%= yield %>
+    <% if logged_in? %>
+        <p><%= link_to "Log Out", log_out_path, method: 'post' %></p>
+    <% else %>
+        <p><%= link_to "Log In", log_in_path, method: 'get' %></p>
+    <% end %>
 
+    <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" /></h1>
+    <%= yield %> <!-- This renders HTML from the other Views files-->
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>

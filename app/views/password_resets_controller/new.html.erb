@@ -1,0 +1,19 @@
+<h1>You've got to be joking...</h1>
+
+<% if params[:email].present? %>
+    <div class="error">Could not find an account matching that email address<%= @error %></div>
+<% end %>
+
+<p>
+  You're serious? Really? Sheesh. Fine. I'll help you out. What's your email address?
+</p>
+
+
+<%= form_tag do %>
+    <label>                            <!-- if labels are used properly, they select the right boxes -->
+      I'm so sorry! Here's my email address:
+      <%= email_field_tag :email %>
+    </label>
+
+    <%= submit_tag "I'm so sorry!" %>
+<% end %>

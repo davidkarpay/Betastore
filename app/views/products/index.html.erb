@@ -1,28 +1,25 @@
+<h1 align="center">Welcome to the Betastore!</h1>
+<!--  <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" /> -->
 
-<html>
-<head>
-  <title>Betastore Items</title>
-  <style>
-      <!--
-      A{text-decoration:none}
-      A{color: black;}
-      -->
-  </style>
-</head>
-<body>
-   <!--     <%= debug cookies[:email] %> -->
-   <% if cookies[:email].present? %>
-        <%= link_to "Log Out", log_out_path, method: 'post' %>
-   <% else %>
-        <%= link_to "Log In", log_in_path, method: 'get' %>
-   <% end %>
-
-<h1><h1 align = "center"><font size="8">Welcome to the Betastore!</h1>
-  <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" />
-    <h1 align = "center"/>
  <!--   <h1><h1 align = "center"><%= @page_title %></h1> -->
-      <h1><font size="4"><h1 align = "center" />Take a look at our Betamore Bling!</h1>
-    <table>
+      <h1 align="center">Take a look at our Betamore Bling!</h1>
+
+    <section>
+
+        <% @products.each do |product| %>
+            <article>
+                <%= image_tag product.image_url %>
+                <h2><%= link_to product_title(product).html_safe, product_path(product) %></h2>
+                <p>
+                  <%= number_to_currency product.price %>
+                  Added <%= time_ago_in_words product.created_at %> ago
+                </p>
+            </article>
+        <% end %>
+     </section>
+
+
+   <!-- <table>
       <tr>
         <td><img src="http://bit.ly/15Gk0by" height = 350 width = 350/></td>
         <td><img src="http://bit.ly/18li4sl" height = 350 width = 350/></td>
@@ -50,4 +47,4 @@
       </tr>
     </table>
 </body>
-</html>
+</html>  -->
