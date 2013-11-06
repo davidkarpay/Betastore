@@ -9,13 +9,13 @@
 </head>
 <body>
   <div class ="container">
-
-    <% if logged_in? %>
-        <p><%= link_to "Log Out", log_out_path, method: 'post' %></p>
-    <% else %>
-        <p><%= link_to "Log In", log_in_path, method: 'get' %></p>
-    <% end %>
-
+        <div class ="log_in_out">
+        <% if logged_in? %>
+            <p><%= link_to "Log Out", log_out_path, method: 'post' %></p>
+        <% else %>
+            <p><%= link_to "Log In", log_in_path, method: 'get' %></p>
+        <% end %>
+        </div>
     <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" /></h1>
     <%= yield %> <!-- This renders HTML from the other Views files-->
     <%= render 'layouts/footer' %>

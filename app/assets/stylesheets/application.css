@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+.log_in_out {
+    border:1px solid black;
+    height:1em;
+    width:4em;
+    border-radius:5px;
+    padding: 1em;
+    text-align:center;
+    text-decoration: none;
+    position:fixed;
+    float:right;
+    background-color:cyan;
+}

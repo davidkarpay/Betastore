@@ -2,8 +2,13 @@
 <!--  <h1 align = "center"><img class="displayed" src="http://whatweekly.com/wp-content/uploads/2012/08/betamorelogo.jpg" /> -->
 
  <!--   <h1><h1 align = "center"><%= @page_title %></h1> -->
-      <h1 align="center">Take a look at our Betamore Bling!</h1>
+      <h1 align="center">Take a look at our BetaBling!</h1>
 
+<%= link_to cart_items_path, class: 'cart' do %>
+    Cart (<span id="cart_item_count"><%= cart_item_count %></span>)
+<% end %>
+
+<div id="cart" style="display: none"></div>
     <section>
 
         <% @products.each do |product| %>

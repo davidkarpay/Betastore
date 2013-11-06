@@ -17,6 +17,9 @@ Betastore::Application.routes.draw do
   post '/log_in' => 'log_ins#create'
   post '/log_out' => 'log_ins#destroy', as: 'log_out'
 
+  get '/cart_items' => 'cart_items#index', as: 'cart_items'   #this is based on what is in the user's session
+  post '/products/:product_id/cart_items' => 'cart_items#create', as: 'add_to_cart'
+
   get '/forgot_password' => 'password_resets_controller#new', as: 'forgot_password'
   post '/forgot_password' => 'password_resets_controller#create'
 
