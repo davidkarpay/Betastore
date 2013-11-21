@@ -1,0 +1,22 @@
+<%= form_for(@order) do |f| %>
+    <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+          <ul>
+            <% @order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+          <!-- Make sure to display the products that the customer has in their cart -->
+    <div class="address">
+      <%= f.text_area :address, "What is your street address?" %><br>
+      <%= f.text_area :address %>
+      <%= f.select_tag :state, options_for_select(us_states) %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign up"%>
+    </div>
+<% end %>

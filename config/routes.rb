@@ -1,23 +1,29 @@
 Betastore::Application.routes.draw do
+  get "admin/orders"
   namespace :admin do
     resources :products
+    root :to => 'products#index'
   end
 
-  root :to => 'subscriptions#index'
+  resources :products, only: [:index, :show]
+  resources :subscriptions, only: [:new, :create, :show, :edit]
 
-  resources :subscriptions
-  resources :products
+  get '/checkout' => 'orders#new', as: 'checkout'
+  post '/checkout' => 'orders#create'
+
+  root :to => 'subscriptions#index'
 
   get '/sign_up' => 'customers#new', as: 'sign_up'
   post '/sign_up' => 'customers#create'
 
   get "/orders/new"
 
+
   get '/log_in' => 'log_ins#new', as: 'log_in'
   post '/log_in' => 'log_ins#create'
   post '/log_out' => 'log_ins#destroy', as: 'log_out'
 
-  get '/cart_items' => 'cart_items#index', as: 'cart_items'   #this is based on what is in the user's session
+  get '/cart' => 'cart_items#index', as: 'cart_items'   #this is based on what is in the user's session
   post '/products/:product_id/cart_items' => 'cart_items#create', as: 'add_to_cart'
 
   get '/forgot_password' => 'password_resets_controller#new', as: 'forgot_password'

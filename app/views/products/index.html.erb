@@ -9,8 +9,8 @@
 <% end %>
 
 <div id="cart" style="display: none"></div>
-    <section>
 
+    <section class="products">
         <% @products.each do |product| %>
             <article>
                 <%= image_tag product.image_url %>
@@ -25,6 +25,8 @@
             </article>
         <% end %>
      </section>
+
+    <%= paginate @products %>
 
 
    <!-- <table>

@@ -33,7 +33,12 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use the API
 gem 'httparty'
 
+gem 'rails_12factor', group: :production
+
+gem 'kaminari'
+
 group :development do
+  gem 'faker'
   gem 'hirb'
   gem 'quiet_assets'
   gem 'pry'
