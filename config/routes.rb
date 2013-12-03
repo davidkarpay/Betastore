@@ -2,7 +2,7 @@ Betastore::Application.routes.draw do
   get "admin/orders"
   namespace :admin do
     resources :products
-    root :to => 'products#index'
+    root :to => 'dashboard#index'
   end
 
   resources :products, only: [:index, :show]
