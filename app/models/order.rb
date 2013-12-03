@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :line_items
   has_one :tracking_number
 
+  before_save :set_total_amount
+
   def self.recent                             #these are methods to be used within the rails c
     where("placed_at > ?", 7.days.ago)  #where("...) is a sql query/relation.
   end
@@ -18,5 +20,9 @@ class Order < ActiveRecord::Base
     line_items.inject(0) do |sum, li|
       li.total_price + sum
     end
+  end
+
+  def set_total_amount
+    self.total_amount = total_price
   end
 end

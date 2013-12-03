@@ -34,6 +34,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'httparty'
 
 gem 'rails_12factor', group: :production
+gem 'newrelic_rpm'
+
+gem 'progressbar'
 
 gem 'kaminari'
 
