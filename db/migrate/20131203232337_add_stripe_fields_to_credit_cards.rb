@@ -2,7 +2,7 @@ class AddStripeFieldsToCreditCards < ActiveRecord::Migration
   def change
     change_table :credit_cards do |t|
       t.remove :card_number
-      t.remove :card_holder_name
+      t.remove :cardholder_name
 
       t.integer :customer_id
       t.string :stripe_token
