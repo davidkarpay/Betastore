@@ -37,8 +37,10 @@ gem 'rails_12factor', group: :production
 
 gem 'kaminari'
 
+gem 'faker'
+
 group :development do
-  gem 'faker'
+
   gem 'hirb'
   gem 'quiet_assets'
   gem 'pry'
